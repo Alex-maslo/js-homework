@@ -4,10 +4,10 @@
 //     буде присвоювати змінній х значення "default"  якщо ви намагаєтесь присвоїти в
 // неї falsy-значення (хибноподібні, тобто ті, які приводиться до false, а це 0 null undefined і тд).
 
-let x = undefined;
-
 // if (x === 0 || x === null || x === undefined) {
 //   x = "default";
 // }
+
+let x = NaN;
 x = x || "default";
 console.log(x);

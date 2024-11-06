@@ -6,13 +6,13 @@ let day = 17;
 
 if (day >= 1 && day <= 31) {
   switch (true) {
-    case day >= 1 && day <= 10:
+    case day <= 10:
       console.log(`Перша декада`);
       break;
-    case day > 10 && day <= 20:
+    case day <= 20:
       console.log(`Друга декада`);
       break;
-    case day >= 21 && day <= 31:
+    default:
       console.log(`Третя декада`);
       break;
   }
