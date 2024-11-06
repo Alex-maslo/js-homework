@@ -7,16 +7,16 @@ let time = 46;
 
 if (time >= 0 && time <= 59) {
   switch (true) {
-    case time <= 15:
+    case time < 15:
       console.log(`Перша чверть`);
       break;
-    case time <= 30:
+    case time < 30:
       console.log(`Друга чверть`);
       break;
-    case time <= 45:
+    case time < 45:
       console.log(`Третя чверть`);
       break;
-    case time <= 59:
+    case time < 59:
       console.log(`Четверта чверть`);
       break;
   }
