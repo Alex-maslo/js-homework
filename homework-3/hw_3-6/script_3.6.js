@@ -35,7 +35,7 @@ let products = [
     title: "tea",
     price: 15,
     image:
-      "https://yogiproducts.com/wp-content/uploads/2009/03/YT-US-CAR-RelaxedMind-C23-202201-V2-3DFront_withGlow-300DPI-1.png",
+      "https://www.barrysteashop.ie/cdn/shop/products/NEWOriginal40s_2400x.jpg?v=1601390013",
   },
 ];
 
