@@ -108,4 +108,23 @@ function sum(arr) {
 // #kpsbSQCt2Lf
 // - створити функцію swap(arr,index1,index2). Функція міняє місцями заняення у відповідних індексах
 
-function swap(arr, index1, index2) {}
+function swap(arr, index1, index2) {
+  let a = arr[index1];
+  arr[index1] = arr[index2];
+  arr[index2] = a;
+
+  return arr;
+}
+
+// #mkGDenYnNjn
+// - Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
+// Приклад exchange(10000,[{currency:'USD',value:25},{currency:'EUR',value:42}],'USD') // => 400
+
+function exchange(sumUAH, currencyValues, exchangeCurrency) {
+  for (const element of currencyValues) {
+    if (element.currency === exchangeCurrency) {
+      return sumUAH / element.value;
+    }
+  }
+  return `Немає валюти у списку`;
+}
