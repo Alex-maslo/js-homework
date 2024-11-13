@@ -155,10 +155,23 @@ console.log('всі буби', allDiamonds)
 
 
 // - всі трефи від 9 та більше
-// const clubsNineAndAbove = deck.filter((card) => card.cardSuit === 'clubs' && (card.value !== '6' && card.value !== '7' && card.value !== '8'));
-// const clubsNineAndAbove = deck.filter((card) => card.cardSuit === 'clubs').slice(3);
-const clubsNineAndAbove = deck.filter(card => card.cardSuit === 'clubs' && (parseInt(card.value) >= 9));
-console.log('всі трефи від 9 та більше', clubsNineAndAbove);
+// варіант 1
+const clubsNineAndAbove = deck.filter(
+    (card) =>
+        card.cardSuit === "clubs" &&
+        card.value !== "6" &&
+        card.value !== "7" &&
+        card.value !== "8",
+);
+console.log("всі трефи від 9 та більше - варіант 1", clubsNineAndAbove);
+
+// варіант 2
+
+const exceptions = ["6", "7", "8"];
+const clubsNineAndAboveSecond = deck.filter(
+    (card) => card.cardSuit === "clubs" && !exceptions.includes(card.value),
+);
+console.log("всі трефи від 9 та більше - варіант 2", clubsNineAndAboveSecond);
 
 // =========================
 //
