@@ -290,15 +290,3 @@ let luckyCinderella = cinderellas.find(
   (cinderella) => cinderella.shoeSize === prince.foundShoeSize,
 );
 console.log("find():", luckyCinderella);
-
-//
-
-Array.prototype.forEach((value, index, array) => {
-  console.log(value);
-});
-
-let arr = [1, 2, 3, 4];
-
-arr.myForEach(function (value) {
-  console.log(value);
-});
