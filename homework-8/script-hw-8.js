@@ -4,33 +4,35 @@
 //     Подумати і реалізувати логіку, в якій кінцевий об'єкт буде мати
 //     функції,які в нього були до цього моменту.
 
-function deepCopy(object) {
-  if (object === undefined || object === null || Number.isNaN(object)) {
-    return object;
-  }
+// це завдання можна не перевіряти, піддивився в рішенні
 
-  if (typeof object !== "object") {
-    return object;
-  }
-
-  const copy = Array.isArray(object) ? [] : {};
-
-  for (const key in object) {
-    if (Object.hasOwn(object, key)) {
-      copy[key] = deepCopy(object[key]);
+function deepClone(object) {
+  if (object) {
+    let func = [];
+    for (const objectKey in object) {
+      if (typeof object[objectKey] === "function") {
+        const fc = object[objectKey].bind({});
+        func.push({ fc, objectKey });
+      }
     }
+
+    const cloneObject = JSON.parse(JSON.stringify(object));
+    for (const f of func) {
+      cloneObject[f.objectKey] = f.fc;
+    }
+    console.log(cloneObject);
+    return cloneObject;
   }
 
-  return copy;
+  throw new Error(`!`);
 }
 
-let origin = { name: "vasya", age: 30 };
-let copy = deepCopy(origin);
-
-// console.log(origin === copy);
-// console.log(origin.name === copy.name);
-// console.log(origin);
-// console.log(copy);
+deepClone({
+  id: 123,
+  name: "vasya",
+  greeting() {},
+  foo() {},
+});
 
 // #iz6emEsP2BA
 // - є масив
@@ -44,6 +46,8 @@ let copy = deepCopy(origin);
 // ];
 // за допомоги map перетворити кожен елемент на наступний тип {id,title,monthDuration
 //     Зробити все ВИКЛЮЧНО за допомоги інлайн конструкції
+
+// зроби два варіанта, хотів би короткий фідбек який варінт краще та чому
 
 let coursesAndDurationArray = [
   { title: "JavaScript Complex", monthDuration: 5 },
