@@ -18,7 +18,7 @@
 .course {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto;
+  grid-template-rows: repeat(3, auto);
   row-gap: 20px;
   border: 1px solid green;
   padding: 10px;
@@ -42,6 +42,7 @@
 }
 
 .course__modules {
+  justify-self: start;
 }
 
 .modules {

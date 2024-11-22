@@ -129,14 +129,3 @@ coursesArray.forEach(({ title, monthDuration, hourDuration, modules }) => {
   cardBody.append(cardTitle, cardDurationContainer, cardDurationModules);
   wrapper.appendChild(cardBody);
 });
-
-//
-
-let nodeListOf = Array.from(document.querySelectorAll(".course__title")).map(
-  (e) => e.offsetHeight,
-);
-
-nodeListOf.sort((a, b) => b - a);
-const max = nodeListOf[0];
-console.log(max);
-//
