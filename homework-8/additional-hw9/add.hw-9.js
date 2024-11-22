@@ -132,18 +132,11 @@ coursesArray.forEach(({ title, monthDuration, hourDuration, modules }) => {
 
 //
 
-const div = document.querySelectorAll(".course__title");
-let max = 0;
-div.forEach((value) => {
-  const height = value.offsetHeight;
-  console.log("Высота div:", height);
+let nodeListOf = Array.from(document.querySelectorAll(".course__title")).map(
+  (e) => e.offsetHeight,
+);
 
-  if (value > max) {
-    max = value;
-  }
-});
-
-setTimeout(() => console.log(max), 200);
-// console.log(max);
-
+nodeListOf.sort((a, b) => b - a);
+const max = nodeListOf[0];
+console.log(max);
 //
