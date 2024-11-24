@@ -101,31 +101,38 @@ let coursesArray = [
 let wrapper = document.getElementById("wrapper");
 
 coursesArray.forEach(({ title, monthDuration, hourDuration, modules }) => {
-  let cardBody = document.createElement("div");
+  let cardCourse = document.createElement("div");
   let cardTitle = document.createElement("h3");
-  let cardMonthDuration = document.createElement("div");
-  let cardHourDuration = document.createElement("div");
   let cardDurationContainer = document.createElement("div");
-  let cardDurationModules = document.createElement("ul");
+  let cardDurationMonth = document.createElement("div");
+  let cardDurationHour = document.createElement("div");
+  let modulesList = document.createElement("ul");
 
-  cardBody.classList.add("course");
+  cardCourse.classList.add("course");
   cardTitle.classList.add("course__title");
   cardDurationContainer.classList.add("course__duration-container");
-  cardMonthDuration.classList.add("course__month-duration");
-  cardHourDuration.classList.add("course__hour-duration");
-  cardDurationModules.classList.add("course__modules");
+  cardDurationMonth.classList.add("course__month-duration");
+  cardDurationHour.classList.add("course__hour-duration");
+  modulesList.classList.add("course__modules");
 
   cardTitle.textContent = title;
-  cardMonthDuration.textContent = `Термін навчання: ${monthDuration} міс.`;
-  cardHourDuration.textContent = `Кількість годин: ${hourDuration}`;
+  cardDurationMonth.textContent = `Місяці: ${monthDuration}`;
+  cardDurationHour.textContent = `Години: ${hourDuration}`;
 
   modules.forEach((module) => {
-    const moduleItem = document.createElement("li");
+    let moduleItem = document.createElement("li");
+    moduleItem.classList.add("modules");
     moduleItem.textContent = module;
-    cardDurationModules.appendChild(moduleItem);
+    modulesList.appendChild(moduleItem);
   });
 
-  cardDurationContainer.append(cardMonthDuration, cardHourDuration);
-  cardBody.append(cardTitle, cardDurationContainer, cardDurationModules);
-  wrapper.appendChild(cardBody);
+  cardDurationContainer.append(cardDurationMonth, cardDurationHour);
+  cardCourse.append(cardTitle, cardDurationContainer, modulesList);
+  wrapper.appendChild(cardCourse);
 });
+
+const cardsArray = document.querySelectorAll(".course");
+const maxHeight = Math.max(
+  ...Array.from(cardsArray).map((item) => item.offsetHeight),
+);
+cardsArray.forEach((item) => (item.style.height = `${maxHeight}px`));
